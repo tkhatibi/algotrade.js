@@ -1,8 +1,16 @@
 {
   "recommendations": [
-    "nrwl.angular-console",
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
-    "dbaeumer.vscode-eslint"
+    "formulahendry.auto-complete-tag",
+    "jock.svg",
+    "nrwl.angular-console",
+    "rvest.vs-code-prettier-eslint",
+    "streetsidesoftware.code-spell-checker",
+    "zamerick.vscode-caddyfile-syntax"
   ]
 }

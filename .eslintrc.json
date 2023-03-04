@@ -1,10 +1,115 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "ignorePatterns": [
+    "**/*"
+  ],
+  "plugins": [
+    "@nrwl/nx",
+    "react",
+    "cypress",
+    "testing-library",
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "usePrettierrc": true
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/consistent-type-imports": "error"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/resolver": {
+      "typescript": {
+        "project": "."
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  },
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": [
+        "**/*.js?(x)"
+      ],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    },
+    {
+      "files": [
+        "**/src/**/?(*.)+(stories).[jt]sx"
+      ],
+      "extends": [
+        "plugin:storybook/recommended"
+      ]
+    },
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:testing-library/react"
+      ],
+      "env": {
+        "jest": true
+      }
+    },
+    {
+      "files": [
+        "**/cypress/**/?(*.)+(cy).[jt]s?(x)"
+      ],
+      "extends": [
+        "plugin:cypress/recommended"
+      ],
+      "parserOptions": {
+        "project": "./cypress/tsconfig.json"
+      },
+      "env": {
+        "cypress/globals": true
+      },
+      "rules": {
+        "cypress/no-force": "warn",
+        "cypress/no-pause": "error",
+        "cypress/no-async-tests": "error",
+        "react/react-in-jsx-scope": "off",
+        "cypress/no-unnecessary-waiting": "error",
+        "cypress/no-assigning-return-values": "error",
+        "cypress/assertion-before-screenshot": "warn"
+      }
+    },
+    {
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
@@ -14,7 +119,9 @@
             "depConstraints": [
               {
                 "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "onlyDependOnLibsWithTags": [
+                  "*"
+                ]
               }
             ]
           }
@@ -22,13 +129,23 @@
       }
     },
     {
-      "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/typescript"
+      ],
       "rules": {}
     },
     {
-      "files": ["*.js", "*.jsx"],
-      "extends": ["plugin:@nrwl/nx/javascript"],
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/javascript"
+      ],
       "rules": {}
     }
   ]
