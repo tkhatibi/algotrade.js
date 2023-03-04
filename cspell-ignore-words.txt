@@ -1,0 +1,10 @@
+algotrade
+Buildable
+cacheable
+commitlint
+Khatibi
+nrwl
+SVGR
+tailwindcss
+Touraj
+trivago

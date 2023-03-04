@@ -1,7 +1,14 @@
 {
+  "env": {
+    "jest": true,
+    "node": true,
+    "es2021": true,
+    "browser": true
+  },
   "root": true,
   "ignorePatterns": [
-    "**/*"
+    "**/*/.next/**/*",
+    "**/*/node_modules/**/*"
   ],
   "plugins": [
     "@nrwl/nx",
@@ -12,7 +19,10 @@
   ],
   "extends": [
     "eslint:recommended",
+    "plugin:@nrwl/nx/react-typescript",
+    "next",
     "next/core-web-vitals",
+    "plugin:@cspell/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
@@ -25,6 +35,14 @@
     "ecmaVersion": "latest"
   },
   "rules": {
+    "@next/next/no-html-link-for-pages": "off",
+    "@cspell/spellchecker": [
+      "error",
+      {
+        "checkComments": true,
+        "autoFix": true
+      }
+    ],
     "prettier/prettier": [
       "error",
       {
@@ -51,6 +69,20 @@
     }
   },
   "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
+      "rules": {
+        "@next/next/no-html-link-for-pages": [
+          "error",
+          "apps/*/pages"
+        ]
+      }
+    },
     {
       "files": [
         "**/*.js?(x)"
