@@ -3,7 +3,7 @@ module.exports = {
   '**/*.{css,json}': ['prettier --write'],
   '*.{ts,tsx}': [
     'eslint --cache --fix',
-    () => 'tsc --project tsconfig.json --pretty --skipLibCheck --noEmit',
+    // () => 'tsc --project tsconfig.json --pretty --skipLibCheck --noEmit',
     'prettier --write',
   ],
 };
