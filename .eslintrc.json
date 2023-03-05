@@ -15,7 +15,8 @@
     "react",
     "cypress",
     "testing-library",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "prettier"
   ],
   "extends": [
     "eslint:recommended",
@@ -43,14 +44,14 @@
         "autoFix": true
       }
     ],
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/consistent-type-imports": "error",
     "prettier/prettier": [
       "error",
       {
         "usePrettierrc": true
       }
-    ],
-    "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/consistent-type-imports": "error"
+    ]
   },
   "settings": {
     "import/parsers": {

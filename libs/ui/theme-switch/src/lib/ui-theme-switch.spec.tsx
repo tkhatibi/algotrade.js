@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
-import Index from "../pages/index";
+import UiThemeSwitch from "./ui-theme-switch";
 
-describe("Index", () => {
+describe("UiThemeSwitch", () => {
   it("should render successfully", () => {
-    const { baseElement } = render(<Index />);
+    const { baseElement } = render(<UiThemeSwitch />);
     expect(baseElement).toBeTruthy();
   });
 });
